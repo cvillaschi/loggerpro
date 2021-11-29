@@ -142,7 +142,7 @@ begin
     lModuleName := lModuleName + '_pid_' + IntToStr(CurrentProcessId).PadLeft(6, '0');
 
   lPath := fLogsFolder;
-  lExt := Format(lFormat, [lModuleName, aFileNumber, aTag]);
+  lExt := Format(lFormat, [lModuleName, aFileNumber, aTag]).Replace('..', '.', [rfReplaceAll]);
   Result := TPath.Combine(lPath, lExt);
 end;
 
